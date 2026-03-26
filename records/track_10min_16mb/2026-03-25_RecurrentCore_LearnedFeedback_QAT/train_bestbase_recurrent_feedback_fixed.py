@@ -134,7 +134,7 @@ def main() -> None:
         clip_hidden=cli.clip_hidden, clip_value=cli.clip_value,
         jacobian_proxy_weight=cli.jacobian_proxy_weight)
 
-    compiled_model = torch.compile(base_model, dynamic=False, fullgraph=True)
+    compiled_model = base_model
     model = compiled_model
 
     extra_scalar = list(feedback.parameters())

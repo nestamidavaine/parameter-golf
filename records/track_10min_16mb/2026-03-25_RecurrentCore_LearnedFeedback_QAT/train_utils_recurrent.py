@@ -501,8 +501,7 @@ def eval_val_sliding(
     token_count = torch.zeros((), device=device, dtype=torch.float64)
     byte_count = torch.zeros((), device=device, dtype=torch.float64)
     base_model.eval()
-    compiled_logits = torch.compile(base_model.forward_logits,
-                                    dynamic=False, fullgraph=True)
+    compiled_logits = base_model.forward_logits
     with torch.inference_mode():
         for bi in range(0, len(my_windows), batch_seqs):
             batch_ws = my_windows[bi:bi + batch_seqs]

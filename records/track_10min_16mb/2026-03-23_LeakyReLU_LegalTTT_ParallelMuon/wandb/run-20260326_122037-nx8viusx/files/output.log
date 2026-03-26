@@ -1,0 +1,44 @@
+logs/bff51f18-fbb9-43cc-9903-c84284e4e76d.txt
+val_bpb:enabled tokenizer_kind=sentencepiece tokenizer_path=../../../data/tokenizers/fineweb_1024_bpe.model
+train_loader:dataset:fineweb10B_sp1024 train_shards:10
+val_loader:shards pattern=../../../data/datasets/fineweb10B_sp1024/fineweb_val_*.bin tokens:62021632
+model_params:26928220
+mtp_num_heads:0 mtp_loss_weight:0.2 mtp_params:0
+XSA:last_4 active_layers:[7, 8, 9, 10]
+world_size:1 grad_accum_steps:8
+sdp_backends:cudnn=False flash=True mem_efficient=False math=False
+attention_mode:gqa num_heads:8 num_kv_heads:4
+tie_embeddings:True embed_lr:0.035 head_lr:0.0 matrix_lr:0.025 scalar_lr:0.025
+train_batch_tokens:786432 train_seq_len:2048 iterations:50 warmup_steps:5 max_wallclock_seconds:900.000
+seed:1337
+warmup_step:1/5
+warmup_step:2/5
+warmup_step:3/5
+warmup_step:4/5
+warmup_step:5/5
+step:0/50 val_loss:6.9304 val_bpb:4.1046 train_time:0ms step_avg:0.02ms
+step:1/50 train_loss:6.9310 train_time:1335ms step_avg:1334.89ms
+step:2/50 train_loss:8.6894 train_time:2639ms step_avg:1319.33ms
+step:3/50 train_loss:7.7641 train_time:3975ms step_avg:1325.02ms
+step:4/50 train_loss:7.2309 train_time:5311ms step_avg:1327.85ms
+step:5/50 train_loss:7.1292 train_time:6648ms step_avg:1329.55ms
+step:6/50 train_loss:7.1698 train_time:7983ms step_avg:1330.57ms
+step:7/50 train_loss:7.1045 train_time:9320ms step_avg:1331.38ms
+step:8/50 train_loss:6.9776 train_time:10656ms step_avg:1331.99ms
+step:9/50 train_loss:6.6169 train_time:11993ms step_avg:1332.53ms
+step:10/50 train_loss:6.2604 train_time:13330ms step_avg:1332.96ms
+step:20/50 train_loss:5.1681 train_time:26695ms step_avg:1334.74ms
+step:25/50 val_loss:4.6120 val_bpb:2.7315 train_time:33413ms step_avg:1336.54ms
+step:30/50 train_loss:4.3901 train_time:40068ms step_avg:1335.60ms
+step:40/50 train_loss:4.0167 train_time:53443ms step_avg:1336.07ms
+step:50/50 train_loss:3.8262 train_time:66820ms step_avg:1336.40ms
+step:50/50 val_loss:3.7856 val_bpb:2.2421 train_time:66853ms step_avg:1337.06ms
+peak memory allocated: 30083 MiB reserved: 31168 MiB
+ema:applying EMA weights
+DIAGNOSTIC post_ema val_loss:5.8987 val_bpb:3.4935 eval_time:38419ms
+Serialized model: 106027446 bytes
+Code size: 89458 bytes
+Serialized model int6+lzma: 4809376 bytes
+Total submission size int6+lzma: 4898834 bytes
+final_int6_roundtrip val_loss:6.0576 val_bpb:3.5876 eval_time:38209ms
+final_int6_roundtrip_exact val_loss:6.05759208 val_bpb:3.58764724

@@ -1,0 +1,52 @@
+============================================================
+  Full 1-GPU run: RecurrentSOTA + Learned Feedback
+  Wall clock: 80 minutes (4800s)
+  Seed: 1337
+============================================================
+logs/7d04be46-b9bd-40bc-b2c1-a12d16a74ae9.txt
+val_bpb:enabled tokenizer_kind=sentencepiece tokenizer_path=../../../data/tokenizers/fineweb_1024_bpe.model
+train_loader:dataset:fineweb10B_sp1024 train_shards:10
+val_loader:shards pattern=../../../data/datasets/fineweb10B_sp1024/fineweb_val_*.bin tokens:62021632
+feedback: mode=diagonal rank=2 per_pass=False params=2560
+recurrence: core_start=4 core_end=7 num_passes=2 stem=4 core=3 tail=4
+model_params:26927708
+mtp_num_heads:0 mtp_loss_weight:0.2 mtp_params:0
+XSA:last_4 active_layers:[7, 8, 9, 10]
+world_size:1 grad_accum_steps:8
+sdp_backends:cudnn=False flash=True mem_efficient=False math=False
+attention_mode:gqa num_heads:8 num_kv_heads:4
+tie_embeddings:True embed_lr:0.035 head_lr:0.0 matrix_lr:0.025 scalar_lr:0.025
+train_batch_tokens:786432 train_seq_len:2048 iterations:20000 warmup_steps:20 max_wallclock_seconds:4800.000
+seed:1337
+warmup_step:1/20
+warmup_step:2/20
+warmup_step:3/20
+warmup_step:4/20
+warmup_step:5/20
+warmup_step:6/20
+warmup_step:7/20
+warmup_step:8/20
+warmup_step:9/20
+warmup_step:10/20
+warmup_step:11/20
+warmup_step:12/20
+warmup_step:13/20
+warmup_step:14/20
+warmup_step:15/20
+warmup_step:16/20
+warmup_step:17/20
+warmup_step:18/20
+warmup_step:19/20
+warmup_step:20/20
+step:0/20000 val_loss:6.9304 val_bpb:4.1046 train_time:0ms step_avg:0.01ms h_norms=['41381.7', '41230.5', '42830.4', '101672.3', '106011.9', '100487.2'] growth=['0.815', '0.996', '1.039', '2.374', '1.043', '0.948']
+step:1/20000 train_loss:6.9317 train_time:1705ms step_avg:1705.16ms
+step:2/20000 train_loss:17.3581 train_time:3384ms step_avg:1692.12ms
+step:3/20000 train_loss:18.3336 train_time:5096ms step_avg:1698.57ms
+step:4/20000 train_loss:16.9947 train_time:6807ms step_avg:1701.79ms
+step:5/20000 train_loss:14.3763 train_time:8518ms step_avg:1703.64ms
+step:6/20000 train_loss:12.6703 train_time:10229ms step_avg:1704.78ms
+step:7/20000 train_loss:11.3676 train_time:11939ms step_avg:1705.60ms
+step:8/20000 train_loss:11.3329 train_time:13648ms step_avg:1706.02ms
+step:9/20000 train_loss:10.9895 train_time:15358ms step_avg:1706.43ms
+step:10/20000 train_loss:10.4378 train_time:17067ms step_avg:1706.72ms
+run_full_1gpu.sh: line 64: 184945 Killed                  PYTHONUNBUFFERED=1 TORCH_COMPILE_DISABLE=1 DATA_PATH="../../../data/datasets/fineweb10B_sp1024" TOKENIZER_PATH="../../../data/tokenizers/fineweb_1024_bpe.model" SEED="${SEED}" ITERATIONS=20000 MAX_WALLCLOCK_SECONDS="${WALLCLOCK}" VAL_LOSS_EVERY=2000 TRAIN_LOG_EVERY=200 WARMUP_STEPS=20 WARMDOWN_ITERS=3500 TRAIN_BATCH_TOKENS=786432 TRAIN_SEQ_LEN=2048 EVAL_SEQ_LEN=2048 EVAL_STRIDE=64 NUM_LAYERS=11 MODEL_DIM=512 NUM_HEADS=8 NUM_KV_HEADS=4 BIGRAM_VOCAB_SIZE=1536 XSA_LAST_N=4 ROPE_DIMS=16 LN_SCALE=1 VE_ENABLED=1 VE_DIM=128 VE_LAYERS="9,10" MATRIX_LR=0.025 SCALAR_LR=0.025 TIED_EMBED_LR=0.035 MUON_MOMENTUM=0.99 MUON_MOMENTUM_WARMUP_START=0.92 MUON_MOMENTUM_WARMUP_STEPS=1500 MUON_WD=0.04 ADAM_WD=0.04 GRAD_CLIP_NORM=0.3 SWA_ENABLED=1 SWA_EVERY=50 LATE_QAT=1 LATE_QAT_THRESHOLD=0.15 TTT_ENABLED=0 CORE_START=4 CORE_END=7 NUM_PASSES=2 CORE_QUANT_ENABLED=0 $PYTHON train_gpt_recurrent.py --feedback-mode diagonal --feedback-rank 2 --clip-hidden --clip-value 15

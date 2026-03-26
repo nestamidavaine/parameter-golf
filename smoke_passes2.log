@@ -1,0 +1,26 @@
+
+========================================
+  NUM_PASSES=2 (30 steps)
+========================================
+logs/4d899ae6-1bf8-4054-b64c-755b08712440.txt
+val_bpb:enabled tokenizer_kind=sentencepiece tokenizer_path=../../../data/tokenizers/fineweb_1024_bpe.model
+train_loader:dataset:fineweb10B_sp1024 train_shards:10
+val_loader:shards pattern=../../../data/datasets/fineweb10B_sp1024/fineweb_val_*.bin tokens:62021632
+feedback: mode=diagonal rank=2 per_pass=False params=2560
+recurrence: core_start=3 core_end=8 num_passes=2 stem=3 core=5 tail=3
+model_params:26927198
+mtp_num_heads:0 mtp_loss_weight:0.2 mtp_params:0
+XSA:last_4 active_layers:[7, 8, 9, 10]
+world_size:1 grad_accum_steps:8
+sdp_backends:cudnn=False flash=True mem_efficient=False math=False
+attention_mode:gqa num_heads:8 num_kv_heads:4
+tie_embeddings:True embed_lr:0.035 head_lr:0.0 matrix_lr:0.025 scalar_lr:0.025
+train_batch_tokens:786432 train_seq_len:2048 iterations:30 warmup_steps:5 max_wallclock_seconds:600.000
+seed:1337
+warmup_step:1/5
+warmup_step:2/5
+warmup_step:3/5
+warmup_step:4/5
+warmup_step:5/5
+step:0/30 val_loss:6.9304 val_bpb:4.1046 train_time:0ms step_avg:0.01ms h_norms=['10183.1', '11332.7', '12572.4', '13909.9', '15222.2', '8143.2', '9246.2', '10422.7', '11669.4', '12875.8'] growth=['1.115', '1.113', '1.109', '1.106', '1.094', '1.148', '1.135', '1.127', '1.120', '1.103']
+smoke_passes.sh: line 50: 207705 Killed                  $PYTHON train_gpt_recurrent.py --feedback-mode diagonal --feedback-rank 2 --residual-scale-init 0.5 --jacobian-proxy-weight 0.01

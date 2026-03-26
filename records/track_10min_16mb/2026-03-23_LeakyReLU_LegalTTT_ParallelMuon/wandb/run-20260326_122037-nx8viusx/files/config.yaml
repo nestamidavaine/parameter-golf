@@ -1,0 +1,66 @@
+_wandb:
+    value:
+        cli_version: 0.25.1
+        e:
+            4wnw16h9ndm7pn30ui902o2a0dmpw2g6:
+                cpu_count: 8
+                cpu_count_logical: 16
+                cudaVersion: "13.0"
+                disk:
+                    /:
+                        total: "1330227675136"
+                        used: "39173939200"
+                email: nesta.midavaine@prosus.com
+                executable: /home/nesta/parameter-golf/.venv/bin/python3
+                git:
+                    commit: b38248cf6d4a1387d06b2906628c717e59747b11
+                    remote: https://github.com/nestamidavaine/parameter-golf.git
+                gpu: NVIDIA H200
+                gpu_count: 1
+                gpu_nvidia:
+                    - architecture: Hopper
+                      cudaCores: 16896
+                      memoryTotal: "150754820096"
+                      name: NVIDIA H200
+                      uuid: GPU-e312faf2-f704-c38a-00a2-ba4137b99846
+                host: computeinstance-e00c09e8zde17qbk32
+                memory:
+                    total: "211069919232"
+                os: Linux-6.11.0-1016-nvidia-x86_64-with-glibc2.39
+                program: <python with no main file>
+                python: CPython 3.12.3
+                root: /home/nesta/parameter-golf/records/track_10min_16mb/2026-03-23_LeakyReLU_LegalTTT_ParallelMuon
+                startedAt: "2026-03-26T12:20:37.042131Z"
+                writerId: 4wnw16h9ndm7pn30ui902o2a0dmpw2g6
+        m: []
+        python_version: 3.12.3
+        t:
+            "3":
+                - 2
+                - 13
+                - 16
+                - 61
+            "4": 3.12.3
+            "5": 0.25.1
+            "12": 0.25.1
+            "13": linux-x86_64
+iterations:
+    value: 50
+method:
+    value: baseline_SOTA
+model_dim:
+    value: 512
+num_heads:
+    value: 8
+num_layers:
+    value: 11
+num_passes:
+    value: 1
+recurrence:
+    value: false
+seed:
+    value: 1337
+train_batch_tokens:
+    value: 786432
+train_seq_len:
+    value: 2048

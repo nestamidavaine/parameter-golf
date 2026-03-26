@@ -158,9 +158,9 @@ def main() -> None:
             args.num_passes, cli.residual_scale_init
         ).to(device)
 
-    # ---- compile ----
-    compiled_model = torch.compile(base_model, dynamic=False, fullgraph=True)
-    model = compiled_model
+    # ---- compile (disabled: stabilizer .item() causes recompilation storms) ----
+    compiled_model = base_model
+    model = base_model
 
     # ---- optimizers ----
     extra_scalar = list(feedback.parameters())

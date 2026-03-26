@@ -1,0 +1,3 @@
+START 4-pass no-RMSnorm jac=0.1, 80GB memory cap (12:30:11)
+DONE => bpb@50=2.1992 int6=3.63878679 step=3052.25ms mem=66516MiB
+FINISHED (12:40:21)

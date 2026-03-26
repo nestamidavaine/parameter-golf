@@ -1,0 +1,5 @@
+START 3-pass no-RMSnorm jac=0.0  (11:59:20)
+DONE jac=0.0 => bpb@50=2.2396 int6=3.65947059 step=2472.25ms mem=54207MiB
+START 3-pass no-RMSnorm jac=0.1  (12:07:41)
+DONE jac=0.1 => bpb@50=2.2184 int6=3.63351438 step=2488.64ms mem=54399MiB
+=== ABLATION COMPLETE (Thu Mar 26 12:16:04 UTC 2026) ===

@@ -1,0 +1,25 @@
+[1/12] START passes=2 jac=0.0  (10:47:18)
+[1/12] DONE passes=2 jac=0.0 (10:54:01)
+  => bpb@50=2.2074 int6_bpb=3.62364007 step_avg=1963.03ms mem=42589MiB
+[2/12] START passes=2 jac=0.001  (10:54:01)
+[2/12] DONE passes=2 jac=0.001 (11:00:46)
+  => bpb@50=2.2141 int6_bpb=3.62377766 step_avg=1978.94ms mem=42782MiB
+[3/12] START passes=2 jac=0.01  (11:00:46)
+[3/12] DONE passes=2 jac=0.01 (11:07:31)
+  => bpb@50=2.2101 int6_bpb=3.62301918 step_avg=1975.11ms mem=42782MiB
+[4/12] START passes=2 jac=0.1  (11:07:31)
+[4/12] DONE passes=2 jac=0.1 (11:14:15)
+  => bpb@50=2.2343 int6_bpb=3.62357527 step_avg=1974.66ms mem=42782MiB
+[5/12] START passes=3 jac=0.0  (11:14:15)
+[5/12] DONE passes=3 jac=0.0 (11:22:52)
+  => bpb@50=2.2007 int6_bpb=3.64008912 step_avg=2564.77ms mem=54994MiB
+[6/12] START passes=3 jac=0.001  (11:22:52)
+[6/12] DONE passes=3 jac=0.001 (11:31:31)
+  => bpb@50=2.2142 int6_bpb=3.64004215 step_avg=2577.70ms mem=55186MiB
+[7/12] START passes=3 jac=0.01  (11:31:31)
+[7/12] DONE passes=3 jac=0.01 (11:40:08)
+  => bpb@50=2.2238 int6_bpb=3.64171241 step_avg=2573.96ms mem=55186MiB
+[8/12] START passes=3 jac=0.1  (11:40:08)
+[8/12] DONE passes=3 jac=0.1 (11:48:45)
+  => bpb@50=2.2088 int6_bpb=3.64030939 step_avg=2573.88ms mem=55186MiB
+[9/12] START passes=4 jac=0.0  (11:48:45)
