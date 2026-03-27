@@ -1,0 +1,4 @@
+START LoRA test: 4-pass r8, 500 steps (Thu Mar 26 20:08:22 UTC 2026)
+Terminated
+run_lora_test_r8.sh: line 70: syntax error near unexpected token `then'
+run_lora_test_r8.sh: line 70: `EXIT -ne 0 ]; then'

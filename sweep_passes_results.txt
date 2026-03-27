@@ -1,0 +1,2 @@
+=== Pass count sweep: noRMS, jac=0.1 ===
+5-pass: bpb=2.1867 int6=3.66733532 step=3619.81ms mem=78629MiB

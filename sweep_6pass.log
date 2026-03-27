@@ -1,0 +1,44 @@
+logs/ee0de337-f03e-40d8-a0f6-5b16e06ada0f.txt
+val_bpb:enabled tokenizer_kind=sentencepiece tokenizer_path=../../../data/tokenizers/fineweb_1024_bpe.model
+train_loader:dataset:fineweb10B_sp1024 train_shards:10
+val_loader:shards pattern=../../../data/datasets/fineweb10B_sp1024/fineweb_val_*.bin tokens:62021632
+feedback: mode=diagonal rank=2 per_pass=False params=2560
+recurrence: core_start=3 core_end=8 num_passes=6 stem=3 core=5 tail=3
+model_params:26927202
+mtp_num_heads:0 mtp_loss_weight:0.2 mtp_params:0
+XSA:last_4 active_layers:[8, 9, 10]
+world_size:1 grad_accum_steps:8
+sdp_backends:cudnn=False flash=True mem_efficient=False math=False
+attention_mode:gqa num_heads:8 num_kv_heads:4
+tie_embeddings:True embed_lr:0.035 head_lr:0.0 matrix_lr:0.025 scalar_lr:0.025
+train_batch_tokens:786432 train_seq_len:2048 iterations:50 warmup_steps:5 max_wallclock_seconds:900.000
+seed:1337
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from WANDB_API_KEY.
+wandb: Currently logged in as: nesta-midavaine (propensity) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: WARNING Using a boolean value for 'reinit' is deprecated. Use 'return_previous' or 'finish_previous' instead.
+wandb: setting up run 5rznhtcu
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in /home/nesta/parameter-golf/records/track_10min_16mb/2026-03-26_RecurrentSOTA_Feedback/wandb/run-20260326_132011-5rznhtcu
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run sweep_6pass_noRMS_j0.1
+wandb: ⭐️ View project at https://wandb.ai/propensity/parameter-golf
+wandb: 🚀 View run at https://wandb.ai/propensity/parameter-golf/runs/5rznhtcu
+wandb:initialized
+warmup_step:1/5
+warmup_step:2/5
+warmup_step:3/5
+warmup_step:4/5
+warmup_step:5/5
+step:0/50 val_loss:6.9304 val_bpb:4.1046 train_time:0ms step_avg:0.02ms h_norms=['9459.8', '10026.0', '10638.5', '11293.0', '11994.1', '12754.8', '13546.4', '14370.5', '15234.0', '16144.6', '14936.2', '15835.7', '16776.4', '17764.6', '18807.4', '17439.0', '18467.7', '19543.9', '20664.7', '21838.3', '20287.3', '21442.5', '22656.2', '23915.0', '25239.7', '23491.8', '24792.6', '26161.8', '27579.4', '29075.0'] growth=['1.057', '1.060', '1.061', '1.062', '1.062', '1.063', '1.062', '1.061', '1.060', '1.060', '1.061', '1.060', '1.059', '1.059', '1.059', '1.060', '1.059', '1.058', '1.057', '1.057', '1.058', '1.057', '1.057', '1.056', '1.055', '1.057', '1.055', '1.055', '1.054', '1.054']
+step:1/50 train_loss:6.9310 train_time:4157ms step_avg:4156.91ms
+step:2/50 train_loss:8.1611 train_time:8307ms step_avg:4153.58ms
+step:3/50 train_loss:7.5076 train_time:12490ms step_avg:4163.29ms
+step:4/50 train_loss:7.6959 train_time:16672ms step_avg:4167.94ms
+step:5/50 train_loss:7.4174 train_time:20854ms step_avg:4170.71ms
+step:6/50 train_loss:7.1131 train_time:25035ms step_avg:4172.58ms
+step:7/50 train_loss:6.9487 train_time:29219ms step_avg:4174.14ms
+step:8/50 train_loss:6.7735 train_time:33402ms step_avg:4175.31ms
+step:9/50 train_loss:6.4261 train_time:37586ms step_avg:4176.27ms
+step:10/50 train_loss:6.0743 train_time:41771ms step_avg:4177.07ms
+step:20/50 train_loss:4.7079 train_time:83751ms step_avg:4187.54ms
+step:25/50 val_loss:4.2787 val_bpb:2.5341 train_time:104722ms step_avg:4188.87ms h_norms=['11702.3', '10378.0', '9422.4', '8775.5', '8411.0', '8171.4', '8013.7', '7986.7', '8068.5', '8259.8', '8039.9', '7983.9', '8037.6', '8189.1', '8437.5', '8051.7', '8055.2', '8157.9', '8354.3', '8641.4', '8155.2', '8190.2', '8320.5', '8544.8', '8857.6', '8314.2', '8362.6', '8506.3', '8746.7', '9076.3'] growth=['0.872', '0.887', '0.908', '0.931', '0.958', '0.972', '0.981', '0.997', '1.010', '1.024', '0.986', '0.993', '1.007', '1.019', '1.030', '0.995', '1.000', '1.013', '1.024', '1.034', '0.999', '1.004', '1.016', '1.027', '1.037', '1.000', '1.006', '1.017', '1.028', '1.038']
