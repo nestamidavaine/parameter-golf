@@ -11,3 +11,6 @@ data/docs_selected.jsonl
 logs/
 *.log
 *.txt
+*.pt
+*.ptz
+*.wandb
