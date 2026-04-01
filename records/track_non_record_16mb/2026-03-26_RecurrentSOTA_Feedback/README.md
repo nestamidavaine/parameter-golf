@@ -141,6 +141,7 @@ Built on the [PR #414](https://github.com/openai/parameter-golf/pull/414) stack 
 | Jacobian proxy | λ=0.01 |
 | Weight avg | EMA(0.997) + SWA(every 50) |
 | Quantization | Late QAT (threshold 0.15) + GPTQ-lite int6 + lzma |
+| Warmup precompilation | All pass×QAT graph variants compiled during 20 warmup steps |
 | Optimizer | Parameter Banking + Parallel Muon |
 
 ## Run Command
@@ -159,9 +160,25 @@ torchrun --standalone --nproc_per_node=8 train_gpt.py \
     --no-interpass-rmsnorm
 ```
 
-## Code Size
+## Tricks
 
-The original training script was 88,253 bytes, which caused seed 2025 to exceed the 16MB submission limit (16,025,625 bytes). Dead code paths (eval-only mode, int8 quantization, unused feedback variants, verbose logging) were removed and the code was minified with [python-minifier](https://github.com/dflook/python-minifier) (no local variable renaming) to 58,186 bytes, bringing all seeds under the limit.
+### Graph Precompilation Warmup
+
+`torch.compile` is lazy — it only compiles a new graph variant the first time it's encountered. With progressive recurrence (1→2→3 passes) and late QAT, this means the training loop would hit compilation stalls at step 4500 (2-pass), step 5500 (3-pass), and again when QAT enables. Under a 600s wallclock cap, these stalls are expensive.
+
+The fix: **precompile all graph variants during warmup before training starts**. During the 20 warmup steps:
+
+1. The last few warmup steps cycle through each `num_passes` variant (2-pass, 3-pass) and each with QAT toggled on
+2. This forces `torch.compile` to eagerly compile every forward/backward graph that will appear during training
+3. After warmup, model weights and optimizer states are restored to their initial values — the warmup steps have zero effect on the actual training run
+
+This ensures the training loop runs at full speed from step 0 with no compilation jitter when passes change or QAT kicks in.
+
+### Code Minification with python-minifier
+
+The original training script was 88,253 bytes, which caused seed 2025 to exceed the 16MB submission limit (16,025,625 bytes). After removing dead code paths (eval-only mode, int8 quantization, unused feedback variants, verbose logging), the file was still too large.
+
+[python-minifier](https://github.com/dflook/python-minifier) with `--no-rename-locals` shrinks the code aggressively (whitespace, docstrings, constant folding) while preserving local variable names — critical because the training script uses string-based lookups for `state_dict` keys and `named_parameters`. This brought the file from 68,435 bytes down to **58,186 bytes**, comfortably fitting all seeds under the 16MB decimal limit.
 
 ## Credits
 
